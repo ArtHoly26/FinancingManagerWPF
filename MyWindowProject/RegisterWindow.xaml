@@ -1,0 +1,221 @@
+﻿<Window x:Class="MyWindowProject.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWindowProject"
+        mc:Ignorable="d"
+        
+    Title="Регистрация" Height="450" Width="400" ResizeMode="NoResize"  Background="#4722aa">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button    Content="Выйти" 
+                   HorizontalAlignment="Left" 
+                   Background="#e03131"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold"
+                   Grid.Row="7" 
+                   VerticalAlignment="Center" 
+                   Width="218" Height="30" Click="Exit" 
+                   Margin="91,0,0,0" 
+                   Grid.ColumnSpan="2"/>
+        
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="41,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Введите имя" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="1"/>
+
+        <TextBox   x:Name="textFirstName"
+                   HorizontalAlignment="Left" 
+                   Margin="41,22,0,0" 
+                   BorderBrush="Black"
+                   Grid.Row="1" 
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="41,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Введите фамилию" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="2"/>
+
+        <TextBox   x:Name="textLastName"
+                   HorizontalAlignment="Left" 
+                   Margin="41,21,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="2" 
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="41,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Введите возраст" 
+                   VerticalAlignment="Top" Grid.Row="3"/>
+
+        <TextBox   x:Name="textAge"
+                   HorizontalAlignment="Left" 
+                   Margin="41,21,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="3" 
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="41,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Введите Email почту" 
+                   VerticalAlignment="Top" Grid.Row="4"/>
+
+        <TextBox   x:Name="textEmail"
+                   HorizontalAlignment="Left" 
+                   Margin="40,21,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="4"
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="136"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="34,3,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Логин" 
+                   VerticalAlignment="Top"  
+                   Grid.Row="1" 
+                   Grid.Column="1"/>
+        
+        <TextBox   x:Name="textLogin"
+                   HorizontalAlignment="Left" 
+                   Margin="34,22,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="1"
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="34,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Пароль" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="2" 
+                   Grid.Column="1"/>
+        
+        <TextBox   x:Name="textPassword"
+                   HorizontalAlignment="Left" 
+                   Margin="34,21,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="2"
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135" 
+                   Grid.Column="1"/>
+        
+        <TextBlock HorizontalAlignment="Left"
+                   TextAlignment="Center"
+                   Margin="41,0,0,0"
+                   Foreground="White"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   TextWrapping="Wrap" 
+                   Text="Регистрация нового пользователя" 
+                   VerticalAlignment="Center" 
+                   RenderTransformOrigin="0.5,0.5" 
+                   Grid.ColumnSpan="2" 
+                   Width="325">
+            
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.214"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        
+        <Button    Content="Зарегистрироваться" 
+                   HorizontalAlignment="Left" 
+                   Background="#e03131"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold"
+                   Grid.Row="6" 
+                   VerticalAlignment="Top" 
+                   Width="218" Height="30" 
+                   Click="Registration" 
+                   Margin="91,5,0,0" 
+                   Grid.ColumnSpan="2"/>
+        
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="34,0,0,0" 
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="12"
+                   Text="Повторите пароль" 
+                   VerticalAlignment="Top" 
+                   Grid.Row="3" 
+                   Grid.Column="1"/>
+        
+        <TextBox   x:Name="textPasswordRepeat"
+                   HorizontalAlignment="Left" 
+                   Margin="34,21,0,0"
+                   BorderBrush="Black"
+                   Grid.Row="3"
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="135" 
+                   Grid.Column="1"/>
+        
+        <TextBlock x:Name="textErrorRepeatPassword"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Center"
+                   Foreground="Red"
+                   Margin="91,0,0,0" 
+                   Grid.Row="5" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Center" 
+                   Width="218"
+                   Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

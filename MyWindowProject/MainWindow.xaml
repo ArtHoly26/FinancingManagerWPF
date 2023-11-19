@@ -1,0 +1,113 @@
+﻿<Window x:Class="MyWindowProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWindowProject"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="400" ResizeMode="NoResize"  Background="#4722aa">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" 
+                   TextAlignment="Center"
+                   TextWrapping="Wrap" 
+                   Foreground="White"
+                   Text="Введите логин" 
+                   FontWeight="Bold"
+                   VerticalAlignment="Top" 
+                   Width="170" 
+                   Height="20" Margin="111,20,0,0"/>
+        <TextBox   Name="textLogin"
+                   HorizontalAlignment="Center" 
+                   Background="#fafafa"
+                   BorderBrush="Black"
+                   Grid.Row="1" 
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Center" 
+                   Width="218" 
+                   Height="30" 
+                   TextChanged="TextBox_TextChanged1"/>
+        <TextBlock Name="textBox2"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   Text="Введите пароль"
+                   FontWeight="Bold"
+                   VerticalAlignment="Top" 
+                   Width="170" 
+                   Height="20" Grid.Row="2" Margin="111,20,0,0"/>
+        <TextBox   Name="textPassword"
+                   HorizontalAlignment="Center" 
+                   Background="#fafafa"
+                   BorderBrush="Black"
+                   Grid.Row="3" 
+                   TextWrapping="Wrap" 
+                   Text="" 
+                   VerticalAlignment="Center" 
+                   Width="218" 
+                   Height="30" 
+                   TextChanged="TextBox_TextChanged2"/>
+        <Button    Content="Зарегистрироваться" 
+                   HorizontalAlignment="Center" 
+                   Background="#e03131"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold"
+                   Grid.Row="7" 
+                   VerticalAlignment="Center" 
+                   Width="218" Height="30" Click="Register"/>
+        <Button    Content="Выйти" 
+                   HorizontalAlignment="Center" 
+                   Background="#e03131"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold"
+                   Grid.Row="8" 
+                   VerticalAlignment="Top" 
+                   Width="218" Height="30" Click="Exit" Margin="0,10,0,0"/>
+        <Button    Content="Вход" 
+                   HorizontalAlignment="Center" 
+                   Background="#e03131"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold"
+                   Grid.Row="6" 
+                   VerticalAlignment="Center" 
+                   Width="218" Height="30" Click="Enter"/>
+        <CheckBox  Name="checkBox1"
+                   HorizontalAlignment="Left" 
+                   Margin="341,0,0,0" 
+                   IsEnabled="False"
+                   Grid.Row="1" 
+                   VerticalAlignment="Center" 
+                   RenderTransformOrigin="-0.227,0.621" />
+        <CheckBox  Name="checkBox2"
+                   HorizontalAlignment="Left" 
+                   Margin="341,0,0,0" 
+                   IsEnabled="False"
+                   Grid.Row="3" 
+                   VerticalAlignment="Center" 
+                   RenderTransformOrigin="-0.227,0.575"/>
+        <TextBlock x:Name="textError"
+                   HorizontalAlignment="Center"
+                   Foreground="Red"
+                   TextAlignment="Center"
+                   Margin="0,12,0,0" 
+                   TextWrapping="Wrap"  
+                   VerticalAlignment="Top" 
+                   Width="218" RenderTransformOrigin="0.503,-0.36" Grid.Row="5"/>
+    </Grid>
+</Window>
+    
+    
