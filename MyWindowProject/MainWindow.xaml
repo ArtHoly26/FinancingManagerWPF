@@ -31,8 +31,6 @@
         <Border Grid.Row="6" Background="#becbde"></Border>
         <Border Grid.Row="7" Background="#215ab0"></Border>
 
-
-
         <TextBlock Name="textBoxLogin"
                    HorizontalAlignment="Center" 
                    TextAlignment="Center"
