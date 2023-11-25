@@ -20,10 +20,10 @@ namespace MyWindowProject
         }
         private void Enter(object sender, RoutedEventArgs e)
         {
+            UserViewModel userViewModel = new UserViewModel();
             string loginToCheck = textLogin.Text;
-            string passwordToCheck = textPassword.Text;
+            string passwordToCheck = textPassword.Password;
             textError.Text = string.Empty;
-
             using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
             {
                 connection.Open();
@@ -46,14 +46,44 @@ namespace MyWindowProject
                             {
                                 byte[] hashedBytesToTextBox = sha256.ComputeHash(Encoding.UTF8.GetBytes(passwordToCheck));
                                 byte[] hashedBytesTodDatabase = sha256.ComputeHash(Encoding.UTF8.GetBytes(hashedPasswordFromDatabase));
+
                                 string hashedPasswordToCheck = BitConverter.ToString(hashedBytesToTextBox).Replace("-", "");
                                 hashedPasswordFromDatabase = BitConverter.ToString(hashedBytesTodDatabase).Replace("-", "");
                                
                                 if (hashedPasswordToCheck == hashedPasswordFromDatabase)
                                 {
                                     // Пароли совпадают, пользователь аутентифицирован
-                                    GetInfo(loginToCheck);
-                                    MainMenu taskWindow = new MainMenu();
+                                    using (SqlConnection connection1 = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
+                                    {
+                                        connection1.Open();
+                                        string query1 = "SELECT Id, Имя, Фамилия, Почта, Возраст, Логин, Пароль FROM Users WHERE Логин=@Login";
+
+                                        using (SqlCommand command1 = new SqlCommand(query1, connection1))
+                                        {
+                                            command1.Parameters.AddWithValue("@Login", loginToCheck);
+
+                                            using (SqlDataReader reader1 = command1.ExecuteReader())
+                                            {
+                                                while (reader1.Read())
+                                                {
+                                                    userViewModel = new UserViewModel
+                                                    {
+                                                        User = new UserData
+                                                        {
+                                                            Id = reader1.GetInt32(reader1.GetOrdinal("Id")),
+                                                            firstName = reader1["Имя"].ToString(),
+                                                            lastName = reader1["Фамилия"].ToString(),
+                                                            Email = reader1["Почта"].ToString(),
+                                                            Login = reader1["Логин"].ToString(),
+                                                            Password = reader1["Пароль"].ToString(),
+                                                            Age = reader1.GetInt32(reader1.GetOrdinal("Возраст"))
+                                                        }
+                                                    };
+                                                };
+                                            }
+                                        }
+                                    }
+                                    MainMenu taskWindow = new MainMenu(userViewModel);
                                     taskWindow.Show();
                                     this.Close();
                                 }
@@ -75,68 +105,12 @@ namespace MyWindowProject
                 }
             }
         }
-        private void GetInfo(string choiseLogin)
-        {
-            using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
-            {
-                connection.Open();
-                string query = "SELECT Id, Имя, Фамилия, Почта, Возраст, Логин, Пароль FROM Users WHERE Логин=@Login";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Login", choiseLogin);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            UserData.Id = reader.GetInt32(reader.GetOrdinal("Id"));
-                            UserData.firstName = reader["Имя"].ToString();
-                            UserData.lastName = reader["Фамилия"].ToString();
-                            UserData.Email = reader["Почта"].ToString();
-                            UserData.Login = reader["Логин"].ToString();
-                            UserData.Password = reader["Пароль"].ToString();
-                            if (int.TryParse(reader["Возраст"].ToString(), out int age))
-                            {
-                                UserData.Age = age;
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
         private void Register(object sender, RoutedEventArgs e)
         {
             RegisterWindow taskWindow = new RegisterWindow();
             taskWindow.Show();
             this.Close();
         }
-        private void TextBox_TextChanged1(object sender, TextChangedEventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(textLogin.Text))
-            {
-                checkBox1.IsChecked = true;
-
-            }
-            else
-            {
-                checkBox1.IsEnabled = false;
-                checkBox1.IsChecked = false;
-            }
-        }
-        private void TextBox_TextChanged2(object sender, TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(textPassword.Text))
-            {
-                checkBox2.IsChecked = true;
-            }
-            else
-            {
-                checkBox2.IsEnabled = false;
-                checkBox2.IsChecked = false;
-            }
-        }
-   
+        
     }
 }

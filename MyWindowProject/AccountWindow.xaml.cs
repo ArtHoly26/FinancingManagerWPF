@@ -7,22 +7,22 @@ namespace MyWindowProject
 {
     public partial class AccountWindow : Window
     {
-        public AccountWindow()
+        private UserViewModel userViewModel;
+        public AccountWindow(UserViewModel userViewModel)
         {
             InitializeComponent();
-            DataContext = UserData.Login;
+            this.userViewModel = userViewModel;
+            DataContext = this.userViewModel;
         }
-
         private void Exit(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
+            MainMenu mainMenu = new MainMenu(userViewModel);
             mainMenu.Show();
             this.Close();
         }
-
         private void SaveData(object sender, RoutedEventArgs e)
         {
-            
+            var mainMenuViewModel = DataContext as MainMenu;
             string newFirstName=textFirstName.Text;
             string newLastName=textLastName.Text;
             string newEmail=textEmail.Text;
@@ -45,13 +45,13 @@ namespace MyWindowProject
                             command.Parameters.AddWithValue("@Age", intAge);
                             command.Parameters.AddWithValue("@Email", newEmail);
                             command.Parameters.AddWithValue("@Login", newLogin);
-                            command.Parameters.AddWithValue("@Id", UserData.Id);
+                            command.Parameters.AddWithValue("@Id", userViewModel.User.Id);
 
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
                                 MessageBox.Show("Данные успешно обновленны в базу данных.");
-                                MainMenu mainMenu = new MainMenu();
+                                MainMenu mainMenu = new MainMenu(userViewModel);
                                 mainMenu.Show();
                                 this.Close();
                             }
@@ -67,6 +67,13 @@ namespace MyWindowProject
                     MessageBox.Show($"Ошибка: {ex.Message}");
                 }
             }
-        }      
+        }
+
+        private void ChangePassword(object sender, RoutedEventArgs e)
+        {
+            PasswordChangeWindow passwordChangeWindow = new PasswordChangeWindow(userViewModel);
+            passwordChangeWindow.Show();
+            this.Close();
+        }
     }
 }

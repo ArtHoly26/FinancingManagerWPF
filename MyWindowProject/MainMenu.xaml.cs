@@ -2,21 +2,24 @@
 using System.Windows;
 using System.Windows.Threading;
 using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyWindowProject
 {
     public partial class MainMenu : Window
     {
+        private UserViewModel userViewModel;
 
         private DispatcherTimer timer;
-        public MainMenu()
+        public MainMenu(UserViewModel userViewModel)
         {
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
-            timer.Start(); 
-            
+            timer.Start();
+
+            this.userViewModel = userViewModel;
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -30,7 +33,7 @@ namespace MyWindowProject
         }
         private void PerconalAccount(object sender, RoutedEventArgs e)
         {
-            AccountWindow accountWindow = new AccountWindow();
+            AccountWindow accountWindow = new AccountWindow(userViewModel);
             accountWindow.ShowDialog();
             this.Close();
         }

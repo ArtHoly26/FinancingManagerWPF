@@ -11,12 +11,11 @@ namespace MyWindowProject
         {
             if (value is int age)
             {
-                return age.ToString(); // Преобразование числа в строку
+                return age.ToString(); 
             }
 
             return value?.ToString();
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
