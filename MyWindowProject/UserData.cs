@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace MyWindowProject
 {
-    public class UserData :INotifyPropertyChanged
+    public class UserData : INotifyPropertyChanged
     {
         private int id;
-        private string? firstname;
-        private string? lastname;
-        private string? email;
+        private string firstname;
+        private string lastname;
+        private string email;
         private int age;
         private string login;
         private string password;
@@ -28,6 +27,8 @@ namespace MyWindowProject
                 }
             }
         }
+
+        [Required(ErrorMessage ="Введите имя!")]
         public string? firstName
         {
             get { return firstname; }
@@ -35,11 +36,13 @@ namespace MyWindowProject
             {
                 if (firstname != value)
                 {
-                    firstname= value;
+                    firstname = value;
                     OnPropertyChanged(nameof(firstName));
                 }
             }
         }
+
+        [Required(ErrorMessage = "Введите фамилию!")]
         public string? lastName
         {
             get { return lastname; }
@@ -52,6 +55,9 @@ namespace MyWindowProject
                 }
             }
         }
+
+        [Required(ErrorMessage ="Введите почту!")]
+        [EmailAddress]
         public string? Email
         {
             get { return email; }
@@ -64,6 +70,8 @@ namespace MyWindowProject
                 }
             }
         }
+
+        [Range(18, 100, ErrorMessage = "Введите возраст 18-100!")]
         public int Age
         {
             get { return age; }
@@ -76,6 +84,9 @@ namespace MyWindowProject
                 }
             }
         }
+
+        [Required(ErrorMessage = "Введите логин!")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Логин 3-20 символов!")]
         public string Login
         {
             get { return login; }
@@ -88,6 +99,9 @@ namespace MyWindowProject
                 }
             }
         }
+
+        [Required(ErrorMessage = "Введите пароль!")]
+        [StringLength(16, MinimumLength = 4, ErrorMessage = "Пароль 4-16 символов!")]
         public string Password
         {
             get { return password; }
@@ -95,7 +109,7 @@ namespace MyWindowProject
             {
                 if (password != value)
                 {
-                    password= value;
+                    password = value;
                     OnPropertyChanged(nameof(Password));
                 }
             }
@@ -106,6 +120,7 @@ namespace MyWindowProject
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        
     }
+    
 }

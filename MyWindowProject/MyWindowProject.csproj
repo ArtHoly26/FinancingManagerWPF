@@ -10,6 +10,8 @@
   <ItemGroup>
     <None Remove="Image\1234.ico" />
     <None Remove="Image\1235.ico" />
+    <None Remove="Image\login.ico" />
+    <None Remove="Image\password.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +26,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\1235.ico" />
+    <Resource Include="Image\login.ico" />
+    <Resource Include="Image\password.ico" />
   </ItemGroup>
 
 </Project>

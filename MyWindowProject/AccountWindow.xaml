@@ -6,15 +6,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Личный кабинет" Height="450" Width="400" ResizeMode="NoResize"  Background="#4722aa">
+        Title="Личный кабинет" Height="500" Width="400" ResizeMode="NoResize" >
 
     <Window.Resources>
         <local:UserData x:Key="UserData" />
         <s:AgeConverter x:Key="AgeConverter" />
     </Window.Resources>
 
-    <Grid Margin="0,0,0,-4">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -22,13 +23,35 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Row="8" Background="#215ab0"></Border>
+
+        <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
+
+
         <TextBlock 
                  HorizontalAlignment="Left" 
                  Margin="17,0,0,0" 
@@ -79,7 +102,7 @@
         <TextBlock HorizontalAlignment="Left" 
             Margin="32,1,0,0" 
             TextWrapping="Wrap"
-            Foreground="White"
+            Foreground="Black"
             FontWeight="Bold"
             FontSize="12"
             Text="Имя" 
@@ -87,7 +110,7 @@
         <TextBlock HorizontalAlignment="Left" 
             Margin="32,1,0,0" 
             TextWrapping="Wrap"
-            Foreground="White"
+            Foreground="Black"
             FontWeight="Bold"
             FontSize="12"
             Text="Фамилия" 
@@ -95,7 +118,7 @@
         <TextBlock HorizontalAlignment="Left" 
             Margin="32,1,0,0" 
             TextWrapping="Wrap"
-            Foreground="White"
+            Foreground="Black"
             FontWeight="Bold"
             FontSize="12"
             Text="Возраст" 
@@ -103,7 +126,7 @@
         <TextBlock HorizontalAlignment="Left" 
             Margin="32,1,0,0" 
             TextWrapping="Wrap"
-            Foreground="White"
+            Foreground="Black"
             FontWeight="Bold"
             FontSize="12"
             Text="Почта" 
@@ -111,23 +134,23 @@
         <TextBox   x:Name="textLogin"
             HorizontalAlignment="Center" 
             BorderBrush="Black"
-            Grid.Row="1"
+            Grid.Row="5"
             Text="{Binding User.Login}"
             TextWrapping="Wrap"  
             VerticalAlignment="Top" 
-            Width="136" Margin="0,22,0,0" Grid.Column="1"/>
+            Width="136" Margin="0,22,0,0"/>
         <TextBlock HorizontalAlignment="Left" 
-            Margin="32,1,0,0" 
+            Margin="32,0,0,0" 
             TextWrapping="Wrap"
-            Foreground="White"
+            Foreground="Black"
             FontWeight="Bold"
             FontSize="12"
             Text="Логин" 
-            VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+            VerticalAlignment="Top" Grid.Row="5"/>
         <Button    x:Name="ButtonExit"
             Content="Выйти в меню" 
             HorizontalAlignment="Center" 
-            Background="#e03131"
+            Background="#215ab0"
             Foreground="White"
             BorderBrush="Black"
             FontWeight="Bold"
@@ -138,7 +161,7 @@
         <Button    x:Name="Exit_Copy"
             Content="Сохранить изменения" 
             HorizontalAlignment="Center" 
-            Background="#e03131"
+            Background="#215ab0"
             Foreground="White"
             BorderBrush="Black"
             FontWeight="Bold"
@@ -149,11 +172,11 @@
         <Button    
             Content="Изменить пароль" 
             HorizontalAlignment="Center" 
-            Background="#e03131"
+            Background="#215ab0"
             Foreground="White"
             BorderBrush="Black"
             FontWeight="Bold"
-            Grid.Row="4" 
+            Grid.Row="5" 
             VerticalAlignment="Center" 
             Width="136" 
             Height="30" Click="ChangePassword" Grid.Column="1"/>

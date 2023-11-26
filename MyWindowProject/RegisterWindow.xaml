@@ -3,71 +3,99 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        
-    Title="Регистрация" Height="450" Width="400" ResizeMode="NoResize"  Background="#4722aa">
+        xmlns:local="clr-namespace:MyWindowProject"
+        Title="Регистрация" Height="500" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <local:UserViewModel x:Key="UserViewModel"/>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="200"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <Border Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Row="7" Background="#becbde"></Border>
+        <Border Grid.Row="8" Background="#215ab0"></Border>
+
+        <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="7" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
+
         <Button    Content="Выйти" 
                    HorizontalAlignment="Left" 
-                   Background="#e03131"
+                   Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
                    FontWeight="Bold"
+                   FontSize="13"
                    Grid.Row="7" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Exit" 
                    Margin="91,0,0,0" 
                    Grid.ColumnSpan="2"/>
-        
+
         <TextBlock HorizontalAlignment="Left" 
                    Margin="41,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Введите имя" 
                    VerticalAlignment="Top" 
                    Grid.Row="1"/>
 
         <TextBox   x:Name="textFirstName"
+                   Text="{Binding User.firstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                    HorizontalAlignment="Left" 
-                   Margin="41,22,0,0" 
+                   Margin="41,31,0,0" 
                    BorderBrush="Black"
                    Grid.Row="1" 
                    TextWrapping="Wrap"  
                    VerticalAlignment="Top" 
                    Width="135"/>
 
-        <TextBlock HorizontalAlignment="Left" 
-                   Margin="41,0,0,0" 
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,0,0,33" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Введите фамилию" 
-                   VerticalAlignment="Top" 
                    Grid.Row="2"/>
 
         <TextBox   x:Name="textLastName"
+                   Text="{Binding User.lastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                    HorizontalAlignment="Left" 
-                   Margin="41,21,0,0"
+                   Margin="41,31,0,0"
                    BorderBrush="Black"
                    Grid.Row="2" 
                    TextWrapping="Wrap"  
@@ -77,15 +105,16 @@
         <TextBlock HorizontalAlignment="Left" 
                    Margin="41,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Введите возраст" 
                    VerticalAlignment="Top" Grid.Row="3"/>
 
         <TextBox   x:Name="textAge"
+                   Text="{Binding User.Age, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                    HorizontalAlignment="Left" 
-                   Margin="41,21,0,0"
+                   Margin="41,32,0,0"
                    BorderBrush="Black"
                    Grid.Row="3" 
                    TextWrapping="Wrap"  
@@ -95,15 +124,16 @@
         <TextBlock HorizontalAlignment="Left" 
                    Margin="41,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Введите Email почту" 
                    VerticalAlignment="Top" Grid.Row="4"/>
 
         <TextBox   x:Name="textEmail"
+                   Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                    HorizontalAlignment="Left" 
-                   Margin="40,21,0,0"
+                   Margin="41,32,0,0"
                    BorderBrush="Black"
                    Grid.Row="4"
                    TextWrapping="Wrap"  
@@ -111,45 +141,45 @@
                    Width="136"/>
 
         <TextBlock HorizontalAlignment="Left" 
-                   Margin="34,3,0,0" 
+                   Margin="25,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Логин" 
                    VerticalAlignment="Top"  
                    Grid.Row="1" 
                    Grid.Column="1"/>
-        
+
         <TextBox   x:Name="textLogin"
+                   Text="{Binding User.Login, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                    HorizontalAlignment="Left" 
-                   Margin="34,22,0,0"
+                   Margin="25,31,0,0"
                    BorderBrush="Black"
                    Grid.Row="1"
                    TextWrapping="Wrap"  
                    VerticalAlignment="Top" 
                    Width="135" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" 
-                   Margin="34,0,0,0" 
+                   Margin="25,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Пароль" 
                    VerticalAlignment="Top" 
                    Grid.Row="2" 
                    Grid.Column="1"/>
-        
-        <TextBox   x:Name="textPassword"
+
+        <PasswordBox x:Name="boxPassword"
                    HorizontalAlignment="Left" 
-                   Margin="34,21,0,0"
+                   Margin="25,31,0,0"
                    BorderBrush="Black"
                    Grid.Row="2"
-                   TextWrapping="Wrap"  
                    VerticalAlignment="Top" 
                    Width="135" 
                    Grid.Column="1"/>
-        
+
         <TextBlock HorizontalAlignment="Left"
                    TextAlignment="Center"
                    Margin="41,0,0,0"
@@ -161,61 +191,123 @@
                    VerticalAlignment="Center" 
                    RenderTransformOrigin="0.5,0.5" 
                    Grid.ColumnSpan="2" 
-                   Width="325">
-            
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.214"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        
+                   Width="325"/>
+
+
         <Button    Content="Зарегистрироваться" 
                    HorizontalAlignment="Left" 
-                   Background="#e03131"
+                   Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
                    FontWeight="Bold"
                    Grid.Row="6" 
-                   VerticalAlignment="Top" 
+                   VerticalAlignment="Center" 
                    Width="218" Height="30" 
                    Click="Registration" 
-                   Margin="91,5,0,0" 
+                   Margin="91,0,0,0" 
                    Grid.ColumnSpan="2"/>
-        
+
         <TextBlock HorizontalAlignment="Left" 
-                   Margin="34,0,0,0" 
+                   Margin="25,0,0,0" 
                    TextWrapping="Wrap"
-                   Foreground="White"
+                   Foreground="Black"
                    FontWeight="Bold"
-                   FontSize="12"
+                   FontSize="13"
                    Text="Повторите пароль" 
                    VerticalAlignment="Top" 
                    Grid.Row="3" 
                    Grid.Column="1"/>
-        
-        <TextBox   x:Name="textPasswordRepeat"
+
+        <PasswordBox   x:Name="textPasswordRepeat"
                    HorizontalAlignment="Left" 
-                   Margin="34,21,0,0"
+                   Margin="25,32,0,0"
                    BorderBrush="Black"
                    Grid.Row="3"
-                   TextWrapping="Wrap"  
                    VerticalAlignment="Top" 
                    Width="135" 
                    Grid.Column="1"/>
-        
+
         <TextBlock x:Name="textErrorRepeatPassword"
                    HorizontalAlignment="Left" 
-                   TextAlignment="Center"
+                   TextAlignment="Left"
                    Foreground="Red"
-                   Margin="91,0,0,0" 
-                   Grid.Row="5" 
+                   FontWeight="Bold"
+                   FontSize="13" 
+                   Grid.Row="3" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Center" 
-                   Width="218"
-                   Grid.ColumnSpan="2"/>
+                   Width="135" Grid.Column="1" Margin="25,0,0,0"/>
+
+        <TextBlock x:Name="textErrorAge"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textAge}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13" 
+                   Grid.Row="3" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Center" 
+                   Width="159" Margin="41,0,0,0"/>
+        <TextBlock x:Name="textErrorEmail"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textEmail}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13" 
+                   Grid.Row="4" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="134" Margin="41,15,0,0"/>
+        <TextBlock x:Name="textErrorLogin"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textLogin}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   Margin="25,14,0,0" 
+                   Grid.Row="1" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="135" Grid.Column="1"/>
+        <TextBlock x:Name="textErrorPassword"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=boxPassword}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   Margin="25,14,0,0" 
+                   Grid.Row="2" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="141" Grid.Column="1" Height="16"/>
+        <TextBlock x:Name="textErrorFirstName"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textFirstName}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   Margin="41,14,0,0" 
+                   Grid.Row="1" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="136"/>
+        <TextBlock x:Name="textErrorLastName"
+                   Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textLastName}"
+                   HorizontalAlignment="Left" 
+                   TextAlignment="Left"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontSize="13"
+                   Margin="41,14,0,0" 
+                   Grid.Row="2" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="136"/>
+
     </Grid>
 </Window>

@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="Главное меню" Height="450" Width="400" ResizeMode="NoResize"  Background="#4722aa">
+        Title="Главное меню" Height="500" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <local:UserData x:Key="UserData"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
@@ -15,57 +21,74 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="200"></ColumnDefinition>
-
-
         </Grid.ColumnDefinitions>
 
-        <TextBlock HorizontalAlignment="Left" 
-                   TextAlignment="Center"
-                   Margin="19,0,0,0" 
-                   TextWrapping="Wrap" 
-                   Foreground="White"
-                   FontWeight="Bold"
-                   FontSize="18"
-                   Text="Добро пожаловать в
-                   Financing Helper!" 
-                   VerticalAlignment="Top" 
-                   Width="362" Height="46" Grid.ColumnSpan="2"/>
+        <Border Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Row="8" Background="#215ab0"></Border>
+
+        <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
 
         <TextBlock Name="timeTextBlock"
                    HorizontalAlignment="Left" 
-                   Margin="10,9,0,0"
+                   Margin="134,9,0,0"
                    Foreground="White"
                    FontWeight="Bold"
                    Text=""
                    TextWrapping="Wrap"  
-                   VerticalAlignment="Top" Width="56" Height="16"/>
+                   VerticalAlignment="Top" Width="56" Height="16" Grid.Column="1" Grid.Row="7"/>
 
         <Button    Content="Выйти" 
-                   HorizontalAlignment="Left" 
-                   Background="#e03131"
+                   HorizontalAlignment="Center" 
+                   Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
                    FontWeight="Bold"
-                   Grid.Row="7" 
+                   FontSize="13"
+                   Grid.Row="6" 
                    VerticalAlignment="Center" 
-                   Width="218" Height="30" Click="Exit" Grid.ColumnSpan="2" Margin="91,0,0,0"/>
+                   Width="112" Height="30" Click="Exit" Grid.Column="1"/>
 
         <Button    x:Name="personalAccount"
                    Content="Личный кабинет" 
                    HorizontalAlignment="Center" 
-                   Background="#e03131"
+                   Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
-                   FontWeight="Bold"
-                   Grid.Row="1" 
+                   FontWeight="Bold" 
+                   FontSize="13"
                    VerticalAlignment="Center" 
                    Width="112" 
-                   Height="30" Click="PerconalAccount"/>
+                   Height="30" Click="PerconalAccount" Grid.Column="1" Grid.Row="1"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Foreground="White"
+                   FontWeight="Bold"
+                   FontSize="25"
+                   Margin="25,10,0,0" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" Grid.ColumnSpan="2" Width="350" Height="37">
+                  <Run Text="Добро пожаловать"/>
+                  <Run Text="{Binding User.Login}"/>
+        </TextBlock>
     </Grid>
 </Window>

@@ -1,6 +1,9 @@
 ﻿using System.Windows;
 using System.Data.SqlClient;
 using System;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 
 
@@ -8,10 +11,11 @@ namespace MyWindowProject
 {
     public partial class RegisterWindow : Window
     {
-        
         public RegisterWindow()
         { 
             InitializeComponent();
+            UserViewModel userViewModel = new UserViewModel();
+            DataContext= userViewModel;
         }
         private void Exit(object sender, RoutedEventArgs e)
         {
@@ -21,11 +25,12 @@ namespace MyWindowProject
         }
         private void SaveUserData()
         {
+           
             string localFirstName = textFirstName.Text;
             string localLastName= textLastName.Text;
             string localEmail= textEmail.Text;
             string localLogin = textLogin.Text;
-            string localPassword = textPassword.Text;
+            string localPassword = boxPassword.Password;
             
             if (int.TryParse(textAge.Text, out int intAge))
             {
@@ -67,19 +72,37 @@ namespace MyWindowProject
         }
         private void Registration(object sender, RoutedEventArgs e)
         {
-            string userPassword = textPassword.Text;
-            string userRepeatPassword = textPasswordRepeat.Text;
+            UserViewModel viewModel = DataContext as UserViewModel;
 
-            if (userPassword == userRepeatPassword)
+            viewModel.User.Password = boxPassword.Password;
+            string userPassword = boxPassword.Password;
+            string userRepeatPassword = textPasswordRepeat.Password;
+
+            var validationContext = new ValidationContext(viewModel.User, serviceProvider: null, items: null);
+            var validationResults = new List<ValidationResult>();
+            bool isValid = Validator.TryValidateObject(viewModel.User, validationContext, validationResults, validateAllProperties: true);
+
+            if (isValid && userPassword == userRepeatPassword)
             {
                 SaveUserData();
                 Exit(sender, e);
             }
             else
             {
-                string errorMessage = "Пароль не совпадает";
-                textErrorRepeatPassword.Text = errorMessage;
-            }
+                textErrorFirstName.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.firstName)))?.ErrorMessage ?? "";
+                textErrorLastName.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.lastName)))?.ErrorMessage ?? "";
+                textErrorAge.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.Age)))?.ErrorMessage ?? "";
+                textErrorEmail.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.Email)))?.ErrorMessage ?? "";
+                textErrorLogin.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.Login)))?.ErrorMessage ?? "";
+                textErrorPassword.Text = validationResults.FirstOrDefault(r => r.MemberNames.Contains(nameof(UserData.Password)))?.ErrorMessage ?? "";
+                if (userPassword!= userRepeatPassword)
+                {
+                    string errorMessage = "Пароль не совпадает";
+                    textErrorRepeatPassword.Text = errorMessage;
+                }
+                
+
+            }      
         }   
         
     }

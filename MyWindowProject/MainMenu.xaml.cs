@@ -18,8 +18,8 @@ namespace MyWindowProject
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
-
             this.userViewModel = userViewModel;
+            DataContext = this.userViewModel;
         }
         private void Timer_Tick(object sender, EventArgs e)
         {

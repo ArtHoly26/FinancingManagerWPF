@@ -20,7 +20,12 @@ namespace MyWindowProject
                 }
             }
         }
-        
+
+        public UserViewModel()
+        {
+            User = new UserData();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

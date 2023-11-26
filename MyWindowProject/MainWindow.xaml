@@ -3,25 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="" Height="500" Width="400" ResizeMode="NoResize">
+        Title="Авторизация" Height="500" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-
-        </Grid.ColumnDefinitions>
         <Border Grid.Row="0" Background="#215ab0"></Border>
         <Border Grid.Row="1" Background="#becbde"></Border>
         <Border Grid.Row="2" Background="#becbde"></Border>
@@ -37,9 +33,11 @@
                    Foreground="Black"
                    Text="Введите логин" 
                    FontWeight="Bold"
+                   FontSize="13"
                    VerticalAlignment="Top" 
                    Width="170" 
                    Height="20" Grid.Row="1" Margin="0,5,0,0"/>
+        
         <TextBox   Name="textLogin"
                    HorizontalAlignment="Center" 
                    Background="#ebece4"
@@ -50,12 +48,14 @@
                    VerticalAlignment="Top" 
                    Width="218" 
                    Height="30" Margin="0,30,0,0" />
+        
         <TextBlock Name="textBoxPassword"
                    HorizontalAlignment="Center" 
                    TextAlignment="Center"
                    Foreground="Black"
                    Text="Введите пароль"
                    FontWeight="Bold"
+                   FontSize="13"
                    VerticalAlignment="Top" 
                    Width="170" 
                    Height="20" Grid.Row="2" Margin="0,5,0,0"/>
@@ -70,40 +70,49 @@
                    VerticalAlignment="Top" 
                    Width="218" 
                    Height="30" Margin="0,30,0,0"/>
+        
         <Button    Content="Зарегистрироваться" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
                    Foreground="#ebece4"
                    BorderBrush="Black"
                    FontWeight="Bold"
+                   FontSize="13"
                    Grid.Row="4" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Register"/>
+        
         <Button    Content="Выйти" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
                    Foreground="#ebece4"
                    BorderBrush="Black"
                    FontWeight="Bold"
+                   FontSize="13"
                    Grid.Row="6" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Exit"/>
+        
         <Button    Content="Вход" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
                    Foreground="#ebece4"
                    BorderBrush="Black"
                    FontWeight="Bold"
+                   FontSize="13"
                    Grid.Row="5" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Enter"/>
+        
         <TextBlock x:Name="textError"
                    HorizontalAlignment="Center"
                    Foreground="Red"
+                   FontWeight="Bold"
                    TextAlignment="Center" 
                    TextWrapping="Wrap"  
-                   VerticalAlignment="Top" 
-                   Width="218" RenderTransformOrigin="0.503,-0.36" Grid.Row="3" Height="16" Margin="0,14,0,0"/>
+                   VerticalAlignment="Center" 
+                   Width="218" RenderTransformOrigin="0.503,-0.36" Grid.Row="3" Height="16"/>
+        
         <TextBlock HorizontalAlignment="Center"
                    TextAlignment="Center"
                    Foreground="#ebece4"
@@ -115,8 +124,10 @@
                    VerticalAlignment="Center" 
                    Width="294" Height="40"/>
 
-        <Image Source="/MyWindowProject;component/Image/1234.ico" Width="100" Margin="150,10,150,65" Grid.Row="7" />
+        <Image Source="/MyWindowProject;component/Image/1234.ico" Margin="134,0,134,27" Grid.Row="7" />
         <Image Source="/MyWindowProject;component/Image/1235.ico" Margin="322,5,-8,5" />
+        <Image Source="/MyWindowProject;component/Image/login.ico" Margin="31,30,331,0" Grid.Row="1"/>
+        <Image Source="/MyWindowProject;component/Image/password.ico" Margin="34,30,328,5" Grid.Row="2"/>
     </Grid>
 </Window>
     
