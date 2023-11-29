@@ -50,7 +50,6 @@ namespace MyWindowProject
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Данные успешно обновленны в базу данных.");
                                 MainMenu mainMenu = new MainMenu(userViewModel);
                                 mainMenu.Show();
                                 this.Close();

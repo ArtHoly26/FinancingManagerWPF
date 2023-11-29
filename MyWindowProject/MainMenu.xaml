@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="Главное меню" Height="500" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+        Title="MainMenu" Height="500" Width="400">
 
     <Window.Resources>
         <local:UserData x:Key="UserData"/>
@@ -58,7 +58,7 @@
                    VerticalAlignment="Top" Width="56" Height="16" Grid.Column="1" Grid.Row="7"/>
 
         <Button    Content="Выйти" 
-                   HorizontalAlignment="Center" 
+                   HorizontalAlignment="Left" 
                    Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
@@ -66,19 +66,19 @@
                    FontSize="13"
                    Grid.Row="6" 
                    VerticalAlignment="Center" 
-                   Width="112" Height="30" Click="Exit" Grid.Column="1"/>
+                   Width="250" Height="30" Click="Exit" Grid.ColumnSpan="2" Margin="75,0,0,0"/>
 
         <Button    x:Name="personalAccount"
                    Content="Личный кабинет" 
-                   HorizontalAlignment="Center" 
+                   HorizontalAlignment="Left" 
                    Background="#215ab0"
                    Foreground="White"
                    BorderBrush="Black"
                    FontWeight="Bold" 
                    FontSize="13"
                    VerticalAlignment="Center" 
-                   Width="112" 
-                   Height="30" Click="PerconalAccount" Grid.Column="1" Grid.Row="1"/>
+                   Width="250" 
+                   Height="30" Click="PerconalAccount" Grid.Row="1" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
 
         <TextBlock HorizontalAlignment="Left" 
                    Foreground="White"
@@ -90,5 +90,42 @@
                   <Run Text="Добро пожаловать"/>
                   <Run Text="{Binding User.Login}"/>
         </TextBlock>
+
+        <Button    x:Name="Income"
+                   Content="Доходы за месяц" 
+                   HorizontalAlignment="Left" 
+                   Background="#215ab0"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold" 
+                   FontSize="13"
+                   VerticalAlignment="Center" 
+                   Width="250" 
+                   Height="30" Click="IncomeMonth" Grid.Row="2" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
+        
+        <Button    x:Name="Expenses"
+                   Content=" Расходы за месяц" 
+                   HorizontalAlignment="Left" 
+                   Background="#215ab0"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold" 
+                   FontSize="13"
+                   VerticalAlignment="Center" 
+                   Width="250" 
+                   Height="30"  Grid.Row="3" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
+        
+        <Button    x:Name="InfoUser"
+                   Content="Финансовая информация" 
+                   HorizontalAlignment="Left" 
+                   Background="#215ab0"
+                   Foreground="White"
+                   BorderBrush="Black"
+                   FontWeight="Bold" 
+                   FontSize="13"
+                   VerticalAlignment="Center" 
+                   Width="250" 
+                   Height="30" Click="FinancingInfo" 
+                   Grid.Row="4" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

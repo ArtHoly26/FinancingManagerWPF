@@ -15,6 +15,8 @@ namespace MyWindowProject
         private int age;
         private string login;
         private string password;
+        private double money;
+        private DateTime date;
         public int Id
         {
             get { return id; }
@@ -111,6 +113,30 @@ namespace MyWindowProject
                 {
                     password = value;
                     OnPropertyChanged(nameof(Password));
+                }
+            }
+        }
+        public double Money
+        {
+            get { return money; }
+            set
+            {
+                if (money != value)
+                {
+                    money = value;
+                    OnPropertyChanged(nameof(Money));
+                }
+            }
+        }
+        public DateTime Date
+        {
+            get { return date; }
+            set
+            {
+                if (date != value)
+                {
+                    date = value;
+                    OnPropertyChanged(nameof(Money));
                 }
             }
         }

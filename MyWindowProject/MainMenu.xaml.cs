@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Threading;
-using System.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MyWindowProject
 {
@@ -18,6 +16,7 @@ namespace MyWindowProject
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
+
             this.userViewModel = userViewModel;
             DataContext = this.userViewModel;
         }
@@ -37,6 +36,19 @@ namespace MyWindowProject
             accountWindow.ShowDialog();
             this.Close();
         }
-        
+        private void IncomeMonth(object sender, RoutedEventArgs e)
+        {
+            IncomeWindow incomeMonth = new IncomeWindow(userViewModel);
+            incomeMonth.ShowDialog();
+            this.Close();
+        }
+
+        private void FinancingInfo(object sender, RoutedEventArgs e)
+        {
+            InfoWindow infoWindow = new InfoWindow(userViewModel);
+            infoWindow.ShowDialog();
+            this.Close();
+        }
     }
 }
+

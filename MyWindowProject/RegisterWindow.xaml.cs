@@ -5,8 +5,6 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-
-
 namespace MyWindowProject
 {
     public partial class RegisterWindow : Window
