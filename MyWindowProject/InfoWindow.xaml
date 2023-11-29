@@ -35,7 +35,9 @@
 
         <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
         <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
-        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde">
+            <TextBox TextWrapping="Wrap" Text="TextBox"/>
+        </Border>
         <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
         <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
         <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
