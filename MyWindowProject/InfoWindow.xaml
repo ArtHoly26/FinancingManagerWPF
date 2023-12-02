@@ -35,9 +35,7 @@
 
         <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
         <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
-        <Border Grid.Column="1" Grid.Row="2" Background="#becbde">
-            <TextBox TextWrapping="Wrap" Text="TextBox"/>
-        </Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"/>
         <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
         <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
         <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
@@ -45,24 +43,24 @@
         <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
         <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
 
-        <ListBox Name="phonesList" Grid.RowSpan="5" Grid.Row="1" Margin="0,0,0,30">
+        <ListBox Name="monthList" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged" Margin="0,26,0,10" Grid.RowSpan="6">
             <TextBlock FontWeight="Bold" Text="Выберите месяц" />
-            <ListBoxItem Background="LightGray">Январь</ListBoxItem>
-            <ListBoxItem>Февраль</ListBoxItem>
-            <ListBoxItem Background="LightGray">Март</ListBoxItem>
-            <ListBoxItem>Апрель</ListBoxItem>
-            <ListBoxItem Background="LightGray">Май</ListBoxItem>
-            <ListBoxItem>Июнь</ListBoxItem>
-            <ListBoxItem Background="LightGray">Июль</ListBoxItem>
-            <ListBoxItem>Август</ListBoxItem>
-            <ListBoxItem Background="LightGray">Сентябрь</ListBoxItem>
-            <ListBoxItem>Октябрь</ListBoxItem>
-            <ListBoxItem Background="LightGray">Ноябрь</ListBoxItem>
-            <ListBoxItem>Декабрь</ListBoxItem>
+            <ListBoxItem x:Name="January" Background="LightGray">Январь</ListBoxItem>
+            <ListBoxItem x:Name="February">Февраль</ListBoxItem>
+            <ListBoxItem x:Name="March"  Background="LightGray">Март</ListBoxItem>
+            <ListBoxItem x:Name="April">Апрель</ListBoxItem>
+            <ListBoxItem x:Name="May" Background="LightGray">Май</ListBoxItem>
+            <ListBoxItem x:Name="June">Июнь</ListBoxItem>
+            <ListBoxItem x:Name="July" Background="LightGray">Июль</ListBoxItem>
+            <ListBoxItem x:Name="August">Август</ListBoxItem>
+            <ListBoxItem x:Name="September" Background="LightGray">Сентябрь</ListBoxItem>
+            <ListBoxItem x:Name="October">Октябрь</ListBoxItem>
+            <ListBoxItem x:Name="November" Background="LightGray">Ноябрь</ListBoxItem>
+            <ListBoxItem x:Name="December">Декабрь</ListBoxItem>
         </ListBox>
 
         <TextBlock  HorizontalAlignment="Left" 
-                    Margin="10,5,0,0" 
+                    Margin="44,5,0,0" 
                     TextWrapping="Wrap"
                     Foreground="Black"
                     FontWeight="Bold"
@@ -76,11 +74,11 @@
                     Grid.Row="1"
                     TextWrapping="Wrap"  
                     VerticalAlignment="Top" 
-                    Width="136" Margin="10,26,0,0" Grid.Column="1"/>
+                    Width="160" Margin="10,26,0,0" Grid.Column="1" Height="74" Grid.RowSpan="2"/>
 
         <Button 
                     Content="Выйти в меню" 
-                    HorizontalAlignment="Center" 
+                    HorizontalAlignment="Left" 
                     Background="#215ab0"
                     Foreground="White"
                     BorderBrush="Black"
@@ -88,7 +86,21 @@
                     Grid.Row="6" 
                     VerticalAlignment="Center" 
                     Width="136" 
-                    Height="30" Click="ButtonExit"/>
+                    Height="30" Click="ButtonExit" Grid.Column="1" Margin="22,0,0,0"/>
+        
+        <TextBlock 
+                    HorizontalAlignment="Left" 
+                    Margin="17,0,0,0" 
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    FontSize="16"
+                    VerticalAlignment="Center" 
+                    Width="366" 
+                    Grid.ColumnSpan="2" 
+                    Height="30"><Run Text="Финансовая информация:"/><Run Text=" "/><Run Text="{Binding User.Login}"/></TextBlock>
+
 
     </Grid>
 </Window>

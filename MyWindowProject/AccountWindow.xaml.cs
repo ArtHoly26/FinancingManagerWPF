@@ -74,5 +74,31 @@ namespace MyWindowProject
             passwordChangeWindow.Show();
             this.Close();
         }
+
+        private void ClearData(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
+            {
+                connection.Open();
+
+                string sql = "DELETE FROM Income WHERE UserId = @TargetId;";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TargetId", userViewModel.User.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Финасовые данные успешно удалены!");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Записей не найдено!");
+                    }
+                }
+            }
+        }
     }
 }

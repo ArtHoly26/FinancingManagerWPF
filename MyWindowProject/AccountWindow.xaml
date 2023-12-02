@@ -180,5 +180,16 @@
             VerticalAlignment="Center" 
             Width="136" 
             Height="30" Click="ChangePassword" Grid.Column="1"/>
+        <Button    
+            Content="Очистить данные" 
+            HorizontalAlignment="Center" 
+            Background="#215ab0"
+            Foreground="White"
+            BorderBrush="Black"
+            FontWeight="Bold"
+            Grid.Row="4" 
+            VerticalAlignment="Center" 
+            Width="136" 
+            Height="30" Click="ClearData" Grid.Column="1"/>
     </Grid>
 </Window>
