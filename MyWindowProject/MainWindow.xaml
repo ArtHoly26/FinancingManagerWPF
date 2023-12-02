@@ -37,7 +37,7 @@
                    VerticalAlignment="Top" 
                    Width="170" 
                    Height="20" Grid.Row="1" Margin="0,5,0,0"/>
-        
+
         <TextBox   Name="textLogin"
                    HorizontalAlignment="Center" 
                    Background="#ebece4"
@@ -48,7 +48,7 @@
                    VerticalAlignment="Top" 
                    Width="218" 
                    Height="30" Margin="0,30,0,0" />
-        
+
         <TextBlock Name="textBoxPassword"
                    HorizontalAlignment="Center" 
                    TextAlignment="Center"
@@ -70,7 +70,7 @@
                    VerticalAlignment="Top" 
                    Width="218" 
                    Height="30" Margin="0,30,0,0"/>
-        
+
         <Button    Content="Зарегистрироваться" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
@@ -81,7 +81,7 @@
                    Grid.Row="4" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Register"/>
-        
+
         <Button    Content="Выйти" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
@@ -92,7 +92,7 @@
                    Grid.Row="6" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Exit"/>
-        
+
         <Button    Content="Вход" 
                    HorizontalAlignment="Center" 
                    Background="#215ab0"
@@ -103,7 +103,7 @@
                    Grid.Row="5" 
                    VerticalAlignment="Center" 
                    Width="218" Height="30" Click="Enter"/>
-        
+
         <TextBlock x:Name="textError"
                    HorizontalAlignment="Center"
                    Foreground="Red"
@@ -112,7 +112,7 @@
                    TextWrapping="Wrap"  
                    VerticalAlignment="Center" 
                    Width="218" RenderTransformOrigin="0.503,-0.36" Grid.Row="3" Height="16"/>
-        
+
         <TextBlock HorizontalAlignment="Center"
                    TextAlignment="Center"
                    Foreground="#ebece4"
@@ -125,8 +125,11 @@
                    Width="294" Height="40"/>
 
         <Image Source="/MyWindowProject;component/Image/1234.ico" Margin="134,0,134,27" Grid.Row="7" />
+        <Image Source="/MyWindowProject;component/Image/exit.ico" Margin="30,5,320,10" Grid.Row="6" />
+        <Image Source="/MyWindowProject;component/Image/register.ico" Margin="32,5,322,10" Grid.Row="4" />
+        <Image Source="/MyWindowProject;component/Image/User.ico" Margin="29,28,325,5" Grid.Row="1" />
         <Image Source="/MyWindowProject;component/Image/1235.ico" Margin="322,5,-8,5" />
-        <Image Source="/MyWindowProject;component/Image/login.ico" Margin="31,30,331,0" Grid.Row="1"/>
+        <Image Source="/MyWindowProject;component/Image/login.ico" Margin="32,8,328,8" Grid.Row="5"/>
         <Image Source="/MyWindowProject;component/Image/password.ico" Margin="34,30,328,5" Grid.Row="2"/>
     </Grid>
 </Window>

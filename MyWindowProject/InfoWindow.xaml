@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="500" Width="400">
+        Title="Информация о доходах" Height="500" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -60,12 +59,12 @@
         </ListBox>
 
         <TextBlock  HorizontalAlignment="Left" 
-                    Margin="44,5,0,0" 
+                    Margin="10,5,0,0" 
                     TextWrapping="Wrap"
                     Foreground="Black"
                     FontWeight="Bold"
                     FontSize="12"
-                    Text="Доход за месяц" 
+                    Text="Информация за месяц" 
                     VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
 
         <TextBox    x:Name="textIncome"
@@ -87,7 +86,7 @@
                     VerticalAlignment="Center" 
                     Width="136" 
                     Height="30" Click="ButtonExit" Grid.Column="1" Margin="22,0,0,0"/>
-        
+
         <TextBlock 
                     HorizontalAlignment="Left" 
                     Margin="17,0,0,0" 
@@ -99,7 +98,9 @@
                     VerticalAlignment="Center" 
                     Width="366" 
                     Grid.ColumnSpan="2" 
-                    Height="30"><Run Text="Финансовая информация:"/><Run Text=" "/><Run Text="{Binding User.Login}"/></TextBlock>
+                    Height="30">
+                   <Run Text="Финансовая информация:"/><Run Text=" "/>
+                   <Run Text="{Binding User.Login}"/></TextBlock>
 
 
     </Grid>
