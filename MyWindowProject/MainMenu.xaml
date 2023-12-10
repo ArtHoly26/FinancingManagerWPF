@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="MainMenu" Height="500" Width="400">
+        Title="MainMenu" Height="500" Width="400" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <local:UserData x:Key="UserData"/>
@@ -113,7 +113,7 @@
                    FontSize="13"
                    VerticalAlignment="Center" 
                    Width="250" 
-                   Height="30"  Grid.Row="3" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
+                   Height="30"  Grid.Row="3" Margin="75,0,0,0" Grid.ColumnSpan="2" Click="Expenses_Click"/>
 
         <Button    x:Name="InfoUser"
                    Content="Финансовая информация" 
@@ -128,7 +128,7 @@
                    Height="30" Click="FinancingInfo" 
                    Grid.Row="4" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
 
-        <Image Source="/MyWindowProject;component/ImageMainMenu/Menu1.ico" Margin="22,5,138,10" Grid.Row="2" />
+        <Image Source="/MyWindowProject;component/ImageMainMenu/Menu1.ico" Margin="8,0,142,5" Grid.Row="2" />
 
     </Grid>
 </Window>

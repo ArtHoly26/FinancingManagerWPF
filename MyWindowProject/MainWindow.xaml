@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        Icon="C:\Users\я\Desktop\Обучение TOP\C#\MyWindowProject\MyWindowProject\Image\FM.ico"
         Title="Авторизация" Height="500" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
-    <Grid>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
@@ -36,7 +37,7 @@
                    FontSize="13"
                    VerticalAlignment="Top" 
                    Width="170" 
-                   Height="20" Grid.Row="1" Margin="0,5,0,0"/>
+                   Height="20" Grid.Row="1" Margin="0,4,0,0"/>
 
         <TextBox   Name="textLogin"
                    HorizontalAlignment="Center" 
@@ -46,8 +47,8 @@
                    Grid.Row="1" 
                    TextWrapping="Wrap"  
                    VerticalAlignment="Top" 
-                   Width="218" 
-                   Height="30" Margin="0,30,0,0" />
+                   Width="240" 
+                   Height="30" Margin="0,29,0,0" />
 
         <TextBlock Name="textBoxPassword"
                    HorizontalAlignment="Center" 
@@ -58,7 +59,7 @@
                    FontSize="13"
                    VerticalAlignment="Top" 
                    Width="170" 
-                   Height="20" Grid.Row="2" Margin="0,5,0,0"/>
+                   Height="20" Grid.Row="2" Margin="0,4,0,0"/>
         <PasswordBox   
                    Name="textPassword"
                    HorizontalAlignment="Center" 
@@ -68,8 +69,8 @@
                    Grid.Row="2" 
                    PasswordChar="*" 
                    VerticalAlignment="Top" 
-                   Width="218" 
-                   Height="30" Margin="0,30,0,0"/>
+                   Width="241" 
+                   Height="30" Margin="0,29,0,0"/>
 
         <Button    Content="Зарегистрироваться" 
                    HorizontalAlignment="Center" 
@@ -79,8 +80,8 @@
                    FontWeight="Bold"
                    FontSize="13"
                    Grid.Row="4" 
-                   VerticalAlignment="Center" 
-                   Width="218" Height="30" Click="Register"/>
+                   VerticalAlignment="Top" 
+                   Width="241" Height="30" Click="Register" Margin="0,18,0,0"/>
 
         <Button    Content="Выйти" 
                    HorizontalAlignment="Center" 
@@ -91,7 +92,7 @@
                    FontSize="13"
                    Grid.Row="6" 
                    VerticalAlignment="Center" 
-                   Width="218" Height="30" Click="Exit"/>
+                   Width="240" Height="30" Click="Exit"/>
 
         <Button    Content="Вход" 
                    HorizontalAlignment="Center" 
@@ -102,7 +103,7 @@
                    FontSize="13"
                    Grid.Row="5" 
                    VerticalAlignment="Center" 
-                   Width="218" Height="30" Click="Enter"/>
+                   Width="240" Height="30" Click="Enter"/>
 
         <TextBlock x:Name="textError"
                    HorizontalAlignment="Center"
@@ -117,20 +118,27 @@
                    TextAlignment="Center"
                    Foreground="#ebece4"
                    FontWeight="Bold"
-                   FontSize="25"
+                   FontSize="32"
                    FontFamily="Algerian"
                    TextWrapping="Wrap" 
                    Text="Finance Menager" 
                    VerticalAlignment="Center" 
-                   Width="294" Height="40"/>
-
-        <Image Source="/MyWindowProject;component/Image/1234.ico" Margin="134,0,134,27" Grid.Row="7" />
-        <Image Source="/MyWindowProject;component/Image/exit.ico" Margin="30,5,320,10" Grid.Row="6" />
-        <Image Source="/MyWindowProject;component/Image/register.ico" Margin="32,5,322,10" Grid.Row="4" />
-        <Image Source="/MyWindowProject;component/Image/User.ico" Margin="29,28,325,5" Grid.Row="1" />
-        <Image Source="/MyWindowProject;component/Image/1235.ico" Margin="322,5,-8,5" />
-        <Image Source="/MyWindowProject;component/Image/login.ico" Margin="32,8,328,8" Grid.Row="5"/>
-        <Image Source="/MyWindowProject;component/Image/password.ico" Margin="34,30,328,5" Grid.Row="2"/>
+                   Width="380" Height="40"/>
+        <Image Source="/MyWindowProject;component/Image/exit.ico" Margin="26,4,334,4" Grid.Row="6" />
+        <Image Source="/MyWindowProject;component/Image/register.ico" Margin="28,15,326,10" Grid.Row="4" RenderTransformOrigin="0.4,0.508" />
+        <Image Source="/MyWindowProject;component/Image/User.ico" Margin="32,29,331,1" Grid.Row="1" />
+        <Image Source="/MyWindowProject;component/Image/1235.ico" Margin="131,0,148,39" Grid.Row="7" RenderTransformOrigin="0.52,1.932" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.888"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.023"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="/MyWindowProject;component/Image/login.ico" Margin="26,4,334,4" Grid.Row="5"/>
+        <Image Source="/MyWindowProject;component/Image/password.ico" Margin="28,29,330,4" Grid.Row="2" RenderTransformOrigin="0.067,0.121"/>
     </Grid>
 </Window>
     

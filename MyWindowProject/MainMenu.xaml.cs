@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -45,8 +46,16 @@ namespace MyWindowProject
 
         private void FinancingInfo(object sender, RoutedEventArgs e)
         {
+            
             InfoWindow infoWindow = new InfoWindow(userViewModel);
             infoWindow.ShowDialog();
+            this.Close();
+        }
+
+        private void Expenses_Click(object sender, RoutedEventArgs e)
+        {
+            ExpensesWindow expensesWindow = new ExpensesWindow(userViewModel);
+            expensesWindow.ShowDialog();
             this.Close();
         }
     }

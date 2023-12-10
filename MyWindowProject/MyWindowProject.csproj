@@ -5,12 +5,15 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Image\1234.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ImageMainMenu\Menu1.ico" />
     <None Remove="Image\1234.ico" />
     <None Remove="Image\1235.ico" />
     <None Remove="Image\exit.ico" />
+    <None Remove="Image\FM.ico" />
     <None Remove="Image\login.ico" />
     <None Remove="Image\password.ico" />
     <None Remove="Image\register.ico" />
@@ -18,34 +21,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
-    <PackageReference Include="OpenAI" Version="1.7.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\1234.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="ImageMainMenu\Menu1.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Image\1234.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Image\1235.ico" />
     <Resource Include="Image\exit.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Image\FM.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Image\login.ico" />
     <Resource Include="Image\password.ico" />
     <Resource Include="Image\register.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\User.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="ImageMainMenu\Menu1.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -67,14 +67,12 @@ namespace MyWindowProject
                 }
             }
         }
-
         private void ChangePassword(object sender, RoutedEventArgs e)
         {
             PasswordChangeWindow passwordChangeWindow = new PasswordChangeWindow(userViewModel);
             passwordChangeWindow.Show();
             this.Close();
         }
-
         private void ClearData(object sender, RoutedEventArgs e)
         {
             using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
@@ -82,6 +80,7 @@ namespace MyWindowProject
                 connection.Open();
 
                 string sql = "DELETE FROM Income WHERE UserId = @TargetId;";
+                string sql2 = "DELETE FROM Expenses WHERE UserId = @TargetId;";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
@@ -98,6 +97,23 @@ namespace MyWindowProject
                         MessageBox.Show($"Записей не найдено!");
                     }
                 }
+
+                using (SqlCommand command = new SqlCommand(sql2, connection))
+                {
+                    command.Parameters.AddWithValue("@TargetId", userViewModel.User.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Финасовые данные успешно удалены!");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Записей не найдено!");
+                    }
+                }
+
             }
         }
     }

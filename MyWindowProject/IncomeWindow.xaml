@@ -5,47 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWindowProject"
         mc:Ignorable="d"
-        Title="IncomeWindow" Height="500" Width="400">
+        Title="IncomeWindow" Height="500" Width="400" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
 
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="150"></RowDefinition>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-            <Border Grid.Row="0" Background="#215ab0"></Border>
-            <Border Grid.Row="1" Background="#becbde"></Border>
-            <Border Grid.Row="2" Background="#becbde"></Border>
-            <Border Grid.Row="3" Background="#becbde"></Border>
-            <Border Grid.Row="4" Background="#becbde"></Border>
-            <Border Grid.Row="5" Background="#becbde"></Border>
-            <Border Grid.Row="6" Background="#becbde"></Border>
-            <Border Grid.Row="7" Background="#215ab0"></Border>
-            <Border Grid.Row="8" Background="#215ab0"></Border>
+        <Border Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Row="8" Background="#215ab0"></Border>
 
-            <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
-            <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
-            <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
-            <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="0" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="1" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="2" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="3" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="4" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="5" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
+        <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
+        <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
 
-            <DatePicker Name="datePicker" 
+        <DatePicker Name="datePicker" 
                     Background="White"
                     IsDropDownOpen="True" 
                     SelectedDateFormat="Short" 
@@ -53,7 +53,7 @@
                     Grid.RowSpan="4" 
                     Grid.Row="1" />
 
-            <Button     x:Name="Save"
+        <Button     x:Name="Save"
                     Content="Сохранить данные" 
                     HorizontalAlignment="Center" 
                     Background="#215ab0"
@@ -65,7 +65,7 @@
                     Width="124" 
                     Height="30" Grid.Row="6" Grid.Column="1" Click="SaveData"/>
 
-            <TextBlock  HorizontalAlignment="Left" 
+        <TextBlock  HorizontalAlignment="Left" 
                     Margin="10,5,0,0" 
                     TextWrapping="Wrap"
                     Foreground="Black"
@@ -74,7 +74,7 @@
                     Text="Введите доход за месяц" 
                     VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
 
-            <TextBox x:Name="textMoney"
+        <TextBox x:Name="textMoney"
                     HorizontalAlignment="Left" 
                     BorderBrush="Black"
                     Grid.Row="1"
@@ -82,7 +82,7 @@
                     VerticalAlignment="Top" 
                     Width="136" Margin="10,26,0,0" Grid.Column="1"/>
 
-            <TextBlock  HorizontalAlignment="Left" 
+        <TextBlock  HorizontalAlignment="Left" 
                     Foreground="White"
                     FontWeight="Bold"
                     FontSize="25"
@@ -91,7 +91,7 @@
                     VerticalAlignment="Top" Grid.ColumnSpan="2" Width="207" Height="36"
                     Text="Введите данные "/>
 
-            <Button 
+        <Button 
                     Content="Выйти в меню" 
                     HorizontalAlignment="Center" 
                     Background="#215ab0"
@@ -102,7 +102,13 @@
                     VerticalAlignment="Center" 
                     Width="136" 
                     Height="30" Click="ButtonExit"/>
-        </Grid>
+
+
+        <TextBlock x:Name="TextInfo"
+                   FontWeight="Bold"
+                   FontSize="15"
+                   Foreground="{Binding TextColor}" Margin="32,10,38,10" Grid.Row="5" Grid.ColumnSpan="2"/>
+    </Grid>
 </Window>
 
 

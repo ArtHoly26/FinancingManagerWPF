@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Data.SqlClient;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 
 namespace MyWindowProject
@@ -14,21 +16,22 @@ namespace MyWindowProject
             this.userViewModel = userViewModel;
             DataContext = this.userViewModel;
         }
-
         private void ButtonExit(object sender, RoutedEventArgs e)
         {
             MainMenu mainMenu = new MainMenu(userViewModel);
             mainMenu.Show();
             this.Close();
         }
-
         private void SaveData(object sender, RoutedEventArgs e)
         {
             string localMoney = textMoney.Text;
-            DateTime localDate = datePicker.DisplayDate;
-   
-              try
-              {
+            DateTime? selectedDate = datePicker.SelectedDate;
+
+            if (selectedDate.HasValue)
+            {
+                DateTime localDate = selectedDate.Value;
+                try
+                {
                     using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
                     {
 
@@ -41,24 +44,28 @@ namespace MyWindowProject
                             command.Parameters.AddWithValue("@Value1", userViewModel.User.Id);
                             command.Parameters.AddWithValue("@Value2", localMoney);
                             command.Parameters.AddWithValue("@Value3", localDate);
-                            
+
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Данные успешно добавлены в базу данных.");
+                                
+                                TextInfo.Text="Данные успешно добавлены в базу данных!";
+                                TextInfo.Foreground = Brushes.Green;
                             }
                             else
                             {
-                                MessageBox.Show("Не удалось добавить данные в базу данных.");
+                                TextInfo.Text="Не удалось добавить данные в базу данных!";
+                                TextInfo.Foreground = Brushes.Red;
                             }
                         }
                     }
-              }
-              catch (Exception ex)
-              {
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show($"Ошибка: {ex.Message}");
-              }
-            
+                }
+
+            }            
         }
     }
 }
