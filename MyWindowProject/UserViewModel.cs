@@ -14,9 +14,7 @@ namespace MyWindowProject
         private UserData _user;
         private SeriesCollection pieSeriesCollection;
         private SeriesCollection incomeSeries;
-        private List<Axis> xAxes;
-        private List<Axis> yAxes;
-
+        
         public UserData User
         {
             get { return _user; }
@@ -50,30 +48,6 @@ namespace MyWindowProject
                 {
                     incomeSeries = value;
                     OnPropertyChanged(nameof(IncomeSeries));
-                }
-            }
-        }
-        public List<Axis> XAxes
-        {
-            get { return xAxes; }
-            set
-            {
-                if (xAxes != value)
-                {
-                    xAxes = value;
-                    OnPropertyChanged(nameof(XAxes));
-                }
-            }
-        }
-        public List<Axis> YAxes
-        {
-            get { return yAxes; }
-            set
-            {
-                if (yAxes != value)
-                {
-                    yAxes = value;
-                    OnPropertyChanged(nameof(YAxes));
                 }
             }
         }

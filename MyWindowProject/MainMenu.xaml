@@ -128,7 +128,7 @@
                    Height="30" Click="FinancingInfo" 
                    Grid.Row="4" Margin="75,0,0,0" Grid.ColumnSpan="2"/>
 
-        <Image Source="/MyWindowProject;component/ImageMainMenu/Menu1.ico" Margin="8,0,142,5" Grid.Row="2" />
+        
 
     </Grid>
 </Window>

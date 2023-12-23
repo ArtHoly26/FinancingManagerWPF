@@ -22,7 +22,6 @@ namespace MyWindowProject
         }
         private void SaveData(object sender, RoutedEventArgs e)
         {
-            var mainMenuViewModel = DataContext as MainMenu;
             string newFirstName=textFirstName.Text;
             string newLastName=textLastName.Text;
             string newEmail=textEmail.Text;
@@ -30,7 +29,6 @@ namespace MyWindowProject
 
             if (int.TryParse(textAge.Text, out int intAge))
             {
-
                 try
                 {
                     using (SqlConnection connection = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = UserDb; Integrated Security = True"))
@@ -50,13 +48,11 @@ namespace MyWindowProject
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MainMenu mainMenu = new MainMenu(userViewModel);
-                                mainMenu.Show();
-                                this.Close();
+                                MessageBox.Show("Данные успешно обновленны!");
                             }
                             else
                             {
-                                MessageBox.Show("Не удалось обновить данные в базе данных.");
+                                MessageBox.Show("Не удалось обновить данные!");
                             }
                         }
                     }

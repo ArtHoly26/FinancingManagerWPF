@@ -3,12 +3,12 @@ using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Globalization;
-using System;
 using System.Text;
 using LiveCharts;
 using LiveCharts.Wpf;
-using System.Collections.ObjectModel;
-using LiveCharts.Wpf.Charts.Base;
+using System;
+
+
 
 namespace MyWindowProject
 {
@@ -16,7 +16,7 @@ namespace MyWindowProject
     {
         private UserViewModel userViewModel;
         private Dictionary<ListBoxItem, int> monthMapping;
-      
+        
         public InfoWindow(UserViewModel userViewModel)
         {
             InitializeComponent();
@@ -35,7 +35,6 @@ namespace MyWindowProject
                 connection.Open();
                 userViewModel.IncomeSeries=new SeriesCollection();
                 
-
                 string sql = "SELECT MONTH(Месяц) AS НомерМесяца, SUM(Доход) AS ДоходЗаМесяц " +
                              "FROM Income " +
                              "WHERE UserId = @UserId " +
@@ -47,37 +46,23 @@ namespace MyWindowProject
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        userViewModel.XAxes = new List<Axis>
-                        {
-                            new Axis { Title = "Месяц"}
-                        };
-
-                        userViewModel.YAxes = new List<Axis>
-                        {
-                            new Axis { Title = "Доход" }
-                        };
                         while (reader.Read())
                         {
                             int month = reader.GetInt32(reader.GetOrdinal("НомерМесяца"));
-                            decimal incomeForMonth = reader.GetDecimal(reader.GetOrdinal("ДоходЗаМесяц"));
                             string monthString= MonthConvert(month);
 
                             var columnSeries = new ColumnSeries
                             {
-                                Values = new ChartValues<decimal> { incomeForMonth },
+                                Values = new ChartValues<decimal> { reader.GetDecimal(reader.GetOrdinal("ДоходЗаМесяц")) },
                                 Title = monthString
                             };
 
-                            userViewModel.IncomeSeries.Add(columnSeries);
+                            userViewModel.IncomeSeries.Add(columnSeries);                          
                         }
-
-                        
-
                     }
                 }
             }
-        }
-                
+        }        
         private string MonthConvert(int _month)
         {
             string localMonth= string.Empty;
@@ -97,7 +82,6 @@ namespace MyWindowProject
 
             return localMonth;
         }
-        
         private void InitializeMonthMapping()
         {
             monthMapping = new Dictionary<ListBoxItem, int>

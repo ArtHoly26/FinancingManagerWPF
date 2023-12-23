@@ -9,7 +9,6 @@
         Title="Личный кабинет" Height="500" Width="400" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <local:UserData x:Key="UserData" />
         <s:AgeConverter x:Key="AgeConverter" />
     </Window.Resources>
 
@@ -50,7 +49,6 @@
         <Border Grid.Column="1" Grid.Row="6" Background="#becbde"></Border>
         <Border Grid.Column="1" Grid.Row="7" Background="#215ab0"></Border>
         <Border Grid.Column="1" Grid.Row="8" Background="#215ab0"></Border>
-
 
         <TextBlock 
                  HorizontalAlignment="Left" 
